@@ -1,0 +1,689 @@
+{
+	"info": {
+		"_postman_id": "1d62e219-68a7-4764-99e7-a978dc20bca7",
+		"name": "computer shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30932409"
+	},
+	"item": [
+		{
+			"name": "Работа с пользователями",
+			"item": [
+				{
+					"name": "Регистрация",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Пользователь\",\r\n    \"username\":\"suharik\",\r\n    \"phone\":\"+79999999999\",\r\n    \"password\":\"password\",\r\n    \"email\":\"suharik@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/register",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"suharik@mail.ru\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/login",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр списка пользователей",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/profile",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"suhary\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Работа с корзиной",
+			"item": [
+				{
+					"name": "Добавление товара в корзину",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\":68,\r\n    \"count\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/cart",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр товаров в корзине",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/cart",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение товаров в корзине",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\":68,\r\n    \"count\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/cart",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товаров в корзине",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/cart/68",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"cart",
+								"68"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Работа с заказами",
+			"item": [
+				{
+					"name": "Оформление заказа",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/orders",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр заказов",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/orders",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Работа с списком избранного",
+			"item": [
+				{
+					"name": "Добавления товара в избранное",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\":58\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/whishlist",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"whishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр товаров в избранном",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/whishlist",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"whishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товаров из избранного",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "T26MvspHwx89ct8wQvr8srpKuvGR2nLu",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/users/whishlist/58",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"users",
+								"whishlist",
+								"58"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Работа с товарами",
+			"item": [
+				{
+					"name": "Просмотр списка товаров по категориям с поиском",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/catalog/computer_case?power_supply_form_factor=ATX",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"catalog",
+								"computer_case"
+							],
+							"query": [
+								{
+									"key": "socket",
+									"value": "AM5",
+									"disabled": true
+								},
+								{
+									"key": "manufacturer",
+									"value": "MSI",
+									"disabled": true
+								},
+								{
+									"key": "memory_type",
+									"value": "DDR5",
+									"disabled": true
+								},
+								{
+									"key": "form_factor",
+									"value": "Standart-ATX",
+									"disabled": true
+								},
+								{
+									"key": "motherboard_form_factor",
+									"value": "Standart-ATX",
+									"disabled": true
+								},
+								{
+									"key": "power_supply_form_factor",
+									"value": "ATX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр категорий товаров",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/catalog",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"catalog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр характеристик продукта",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/product/48",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"product",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление товара",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5NVhoQgdk_2Xl5cVRbQ6I9c5DJT2iz2l",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"manufacturer\": 20,\r\n    \"price\": 4199,\r\n    \"name\": \"Kingston FURY Beast Black\",\r\n    \"memory_type\": 4,\r\n    \"memory_capacity\": 16,\r\n    \"frequency\": 3200,\r\n    \"number_modules\":2 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://k-churkin.сделай.site/product/ram",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"product",
+								"ram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление товара",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5NVhoQgdk_2Xl5cVRbQ6I9c5DJT2iz2l",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/product/48",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"product",
+								"48"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение товара",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://k-churkin.сделай.site/product/48",
+							"protocol": "https",
+							"host": [
+								"k-churkin",
+								"сделай",
+								"site"
+							],
+							"path": [
+								"product",
+								"48"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
